@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasib Islamic Academy - Translation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a5f38;
+            --secondary-color: #c4911c;
+            --accent-color: #8b0000;
+            --text-color: #333;
+            --light-bg: #f9f7f2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .top-images {
+            background-color: var(--light-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(10, 95, 56, 0.1);
+            position: relative;
+        }
+        
+        .images-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .flag-image, .map-image {
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flag-image {
+            border: 3px solid var(--primary-color);
+        }
+        
+        .map-image {
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background-color: white;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .logo h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 180px);
+        }
+        
+        .content {
+            flex: 1;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-title h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .decorative-line {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin: 20px auto;
+        }
+        
+        .course-content {
+            margin-bottom: 40px;
+        }
+        
+        .course-content h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .course-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .translation-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .area-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .area-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .area-card h4 {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .area-card h4 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .area-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .translation-skills {
+            background-color: rgba(196, 145, 28, 0.1);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .translation-skills h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .skill-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .skill-item div h4 {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        
+        .skill-item div p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .learning-methods {
+            margin: 30px 0;
+        }
+        
+        .learning-methods h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .methods-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .tab-btn {
+            background-color: var(--light-bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 25px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .tab-pane h4 {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .tab-pane p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .tab-pane ul {
+            padding-left: 20px;
+        }
+        
+        .tab-pane li {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .enrollment-section {
+            background-color: rgba(10, 95, 56, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .enrollment-section h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .enrollment-section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #084d2c;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(10, 95, 56, 0.1);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-content p {
+            margin: 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* RTL Support */
+        [dir="rtl"] .logo {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .logo i {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        [dir="rtl"] .contact-info {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .contact-info i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        [dir="rtl"] .language-switcher {
+            right: auto;
+            left: 20px;
+        }
+        
+        [dir="rtl"] .area-card {
+            border-left: none;
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        [dir="rtl"] .area-card h4 {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .area-card h4 i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        [dir="rtl"] .skill-item {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .skill-item i {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        [dir="rtl"] .tab-pane ul {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+        
+        [dir="rtl"] .footer-content {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .social-links a {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .images-container {
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .language-switcher {
+                position: static;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .page-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-images">
+        <div class="container">
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('fa')">فارسی</button>
+            </div>
+            <div class="images-container">
+                <img src="https://z-cdn-media.chatglm.cn/files/8bada2a1-d9b7-42c5-ab3d-2f8164ae8be8_1.png?auth_key=1788727618-9f3dda0745034669960b376a10f3b8fd-0-55eb8252be593ec57b2d3181ee446b8c" alt="Afghanistan Flag" class="flag-image">
+                <img src="https://z-cdn-media.chatglm.cn/files/3fb99bde-62c3-471f-bb74-048305258971_2.jpg?auth_key=1788727618-d09fa6da29d3418ba56719fcc9f5010a-0-4e14613127ba9b64189db4dbc6a25e3e" alt="Afghanistan Map" class="map-image">
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mosque"></i>
+                    <h1 data-i18n="academy-name">Hasib Islamic Academy</h1>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <span data-i18n="contact-number">+93764161130</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <div class="content">
+            <div class="page-title">
+                <h2 data-i18n="page-title">Translation</h2>
+                <div class="decorative-line"></div>
+            </div>
+            
+            <div class="course-content">
+                <h3 data-i18n="section-title">Bridging Languages and Cultures</h3>
+                <p data-i18n="intro-text">Translation plays a vital role in making Islamic knowledge accessible to people across linguistic boundaries. At Hasib Islamic Academy, our Translation course equips students with the skills to accurately translate and interpret Quranic verses, Hadith, and other Islamic texts while preserving their intended meanings and nuances.</p>
+                
+                <p data-i18n="intro-text-2">Our comprehensive program combines linguistic proficiency with deep Islamic knowledge, ensuring that translations are not only linguistically accurate but also theologically sound. Students learn to navigate the challenges of translating sacred texts and develop the sensitivity required to convey Islamic concepts across cultural contexts.</p>
+            </div>
+            
+            <div class="translation-areas">
+                <div class="area-card">
+                    <h4><i class="fas fa-quran"></i><span data-i18n="area-1-title">Quranic Translation</span></h4>
+                    <p data-i18n="area-1-desc">Learning to translate the Holy Quran with precision, understanding the linguistic miracles, and conveying the profound meanings across languages.</p>
+                </div>
+                
+                <div class="area-card">
+                    <h4><i class="fas fa-scroll"></i><span data-i18n="area-2-title">Hadith Translation</span></h4>
+                    <p data-i18n="area-2-desc">Mastering the translation of Prophetic traditions while preserving the context, nuances, and legal implications of the narrations.</p>
+                </div>
+                
+                <div class="area-card">
+                    <h4><i class="fas fa-book-open"></i><span data-i18n="area-3-title">Classical Texts</span></h4>
+                    <p data-i18n="area-3-desc">Developing skills to translate classical Islamic literature, including works of jurisprudence, theology, and spirituality.</p>
+                </div>
+                
+                <div class="area-card">
+                    <h4><i class="fas fa-comments"></i><span data-i18n="area-4-title">Interpretation</span></h4>
+                    <p data-i18n="area-4-desc">Learning the art of interpretation (Tafsir) and how to convey the deeper meanings and contextual understanding of Islamic texts.</p>
+                </div>
+            </div>
+            
+            <div class="translation-skills">
+                <h3 data-i18n="skills-title">Essential Translation Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <h4 data-i18n="skill-1-title">Linguistic Proficiency</h4>
+                            <p data-i18n="skill-1-desc">Mastering Arabic grammar, vocabulary, and stylistic features essential for accurate translation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fas fa-balance-scale"></i>
+                        <div>
+                            <h4 data-i18n="skill-2-title">Conceptual Accuracy</h4>
+                            <p data-i18n="skill-2-desc">Ensuring that Islamic concepts are translated with precision and theological correctness.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h4 data-i18n="skill-3-title">Cultural Sensitivity</h4>
+                            <p data-i18n="skill-3-desc">Understanding cultural contexts and adapting translations to resonate with target audiences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <div>
+                            <h4 data-i18n="skill-4-title">Stylistic Excellence</h4>
+                            <p data-i18n="skill-4-desc">Developing writing skills that maintain the elegance and power of the original texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="learning-methods">
+                <h3 data-i18n="methods-title">Our Learning Approach</h3>
+                <div class="methods-tabs">
+                    <button class="tab-btn active" onclick="openTab(event, 'theory')">Theory</button>
+                    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+                    <button class="tab-btn" onclick="openTab(event, 'specialization')">Specialization</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="theory" class="tab-pane active">
+                        <h4 data-i18n="tab-theory-title">Theoretical Foundation</h4>
+                        <p data-i18n="tab-theory-desc">Our theoretical component provides students with a solid foundation in translation principles and methodologies specific to Islamic texts.</p>
+                        <ul>
+                            <li data-i18n="tab-theory-item-1">Principles of Islamic translation</li>
+                            <li data-i18n="tab-theory-item-2">Challenges in translating sacred texts</li>
+                            <li data-i18n="tab-theory-item-3">History of Quranic translation</li>
+                            <li data-i18n="tab-theory-item-4">Comparative analysis of major translations</li>
+                            <li data-i18n="tab-theory-item-5">Common errors and how to avoid them</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="practice" class="tab-pane">
+                        <h4 data-i18n="tab-practice-title">Practical Application</h4>
+                        <p data-i18n="tab-practice-desc">Through extensive practice, students develop the skills needed to produce high-quality translations of Islamic texts.</p>
+                        <ul>
+                            <li data-i18n="tab-practice-item-1">Guided translation exercises</li>
+                            <li data-i18n="tab-practice-item-2">Peer review and feedback sessions</li>
+                            <li data-i18n="tab-practice-item-3">Comparative translation analysis</li>
+                            <li data-i18n="tab-practice-item-4">Real-world translation projects</li>
+                            <li data-i18n="tab-practice-item-5">Collaborative translation work</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="specialization" class="tab-pane">
+                        <h4 data-i18n="tab-specialization-title">Areas of Specialization</h4>
+                        <p data-i18n="tab-specialization-desc">Students can choose to specialize in particular areas of Islamic translation based on their interests and career goals.</p>
+                        <ul>
+                            <li data-i18n="tab-specialization-item-1">Quranic translation and Tafsir</li>
+                            <li data-i18n="tab-specialization-item-2">Hadith translation and commentary</li>
+                            <li data-i18n="tab-specialization-item-3">Islamic legal texts translation</li>
+                            <li data-i18n="tab-specialization-item-4">Historical and biographical works</li>
+                            <li data-i18n="tab-specialization-item-5">Contemporary Islamic discourse</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="enrollment-section">
+                <h3 data-i18n="enrollment-title">Master Islamic Translation</h3>
+                <p data-i18n="enrollment-text">Join our Translation course to develop the skills needed to accurately convey Islamic knowledge across linguistic and cultural boundaries. Our program is suitable for students with intermediate to advanced Arabic proficiency.</p>
+                <a href="#" class="btn" data-i18n="enroll-btn">Enroll Now</a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav-home">Home</a>
+                <a href="memorizing.html" data-i18n="nav-memorizing">Memorizing the Holy Quran</a>
+                <a href="observation.html" data-i18n="nav-observation">Observation</a>
+                <a href="recitation.html" data-i18n="nav-recitation">Rules of Recitation</a>
+                <a href="tajweed.html" data-i18n="nav-tajweed">Tajweed</a>
+                <a href="biography.html" data-i18n="nav-biography">Biography</a>
+                <a href="hadith.html" data-i18n="nav-hadith">Hadith</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer-copyright">&copy; 2023 Hasib Islamic Academy. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                "academy-name": "Hasib Islamic Academy",
+                "contact-number": "+93764161130",
+                "page-title": "Translation",
+                "section-title": "Bridging Languages and Cultures",
+                "intro-text": "Translation plays a vital role in making Islamic knowledge accessible to people across linguistic boundaries. At Hasib Islamic Academy, our Translation course equips students with the skills to accurately translate and interpret Quranic verses, Hadith, and other Islamic texts while preserving their intended meanings and nuances.",
+                "intro-text-2": "Our comprehensive program combines linguistic proficiency with deep Islamic knowledge, ensuring that translations are not only linguistically accurate but also theologically sound. Students learn to navigate the challenges of translating sacred texts and develop the sensitivity required to convey Islamic concepts across cultural contexts.",
+                "area-1-title": "Quranic Translation",
+                "area-1-desc": "Learning to translate the Holy Quran with precision, understanding the linguistic miracles, and conveying the profound meanings across languages.",
+                "area-2-title": "Hadith Translation",
+                "area-2-desc": "Mastering the translation of Prophetic traditions while preserving the context, nuances, and legal implications of the narrations.",
+                "area-3-title": "Classical Texts",
+                "area-3-desc": "Developing skills to translate classical Islamic literature, including works of jurisprudence, theology, and spirituality.",
+                "area-4-title": "Interpretation",
+                "area-4-desc": "Learning the art of interpretation (Tafsir) and how to convey the deeper meanings and contextual understanding of Islamic texts.",
+                "skills-title": "Essential Translation Skills",
+                "skill-1-title": "Linguistic Proficiency",
+                "skill-1-desc": "Mastering Arabic grammar, vocabulary, and stylistic features essential for accurate translation.",
+                "skill-2-title": "Conceptual Accuracy",
+                "skill-2-desc": "Ensuring that Islamic concepts are translated with precision and theological correctness.",
+                "skill-3-title": "Cultural Sensitivity",
+                "skill-3-desc": "Understanding cultural contexts and adapting translations to resonate with target audiences.",
+                "skill-4-title": "Stylistic Excellence",
+                "skill-4-desc": "Developing writing skills that maintain the elegance and power of the original texts.",
+                "methods-title": "Our Learning Approach",
+                "tab-theory-title": "Theoretical Foundation",
+                "tab-theory-desc": "Our theoretical component provides students with a solid foundation in translation principles and methodologies specific to Islamic texts.",
+                "tab-theory-item-1": "Principles of Islamic translation",
+                "tab-theory-item-2": "Challenges in translating sacred texts",
+                "tab-theory-item-3": "History of Quranic translation",
+                "tab-theory-item-4": "Comparative analysis of major translations",
+                "tab-theory-item-5": "Common errors and how to avoid them",
+                "tab-practice-title": "Practical Application",
+                "tab-practice-desc": "Through extensive practice, students develop the skills needed to produce high-quality translations of Islamic texts.",
+                "tab-practice-item-1": "Guided translation exercises",
+                "tab-practice-item-2": "Peer review and feedback sessions",
+                "tab-practice-item-3": "Comparative translation analysis",
+                "tab-practice-item-4": "Real-world translation projects",
+                "tab-practice-item-5": "Collaborative translation work",
+                "tab-specialization-title": "Areas of Specialization",
+                "tab-specialization-desc": "Students can choose to specialize in particular areas of Islamic translation based on their interests and career goals.",
+                "tab-specialization-item-1": "Quranic translation and Tafsir",
+                "tab-specialization-item-2": "Hadith translation and commentary",
+                "tab-specialization-item-3": "Islamic legal texts translation",
+                "tab-specialization-item-4": "Historical and biographical works",
+                "tab-specialization-item-5": "Contemporary Islamic discourse",
+                "enrollment-title": "Master Islamic Translation",
+                "enrollment-text": "Join our Translation course to develop the skills needed to accurately convey Islamic knowledge across linguistic and cultural boundaries. Our program is suitable for students with intermediate to advanced Arabic proficiency.",
+                "enroll-btn": "Enroll Now",
+                "nav-home": "Home",
+                "nav-memorizing": "Memorizing the Holy Quran",
+                "nav-observation": "Observation",
+                "nav-recitation": "Rules of Recitation",
+                "nav-tajweed": "Tajweed",
+                "nav-biography": "Biography",
+                "nav-hadith": "Hadith",
+                "footer-copyright": "&copy; 2023 Hasib Islamic Academy. All rights reserved."
+            },
+            fa: {
+                "academy-name": "اکادمی اسلامی حسیب",
+                "contact-number": "+93764161130",
+                "page-title": "ترجمه",
+                "section-title": "پل زدن بین زبان‌ها و فرهنگ‌ها",
+                "intro-text": "ترجمه نقش حیاتی در دسترسی‌پذیر کردن دانش اسلامی برای مردم در مرزهای زبانی ایفا می‌کند. در اکادمی اسلامی حسیب، دوره ترجمه ما دانش‌آموزان را با مهارت‌های لازم برای ترجمه دقیق و تفسیر آیات قرآنی، احادیث و متون اسلامی دیگر در حالی که معانی و ظرافت‌های مورد نظر آنها را حفظ می‌کند، مجهز می‌کند.",
+                "intro-text-2": "برنامه جامع ما تسلط زبانی را با دانش عمیق اسلامی ترکیب می‌کند و اطمینان حاصل می‌کند که ترجمه‌ها نه تنها از نظر زبانی دقیق بلکه از نظر الهیاتی معتبر نیز هستند. دانش‌آموزان یاد می‌گیرند که چالش‌های ترجمه متون مقدس را پیمایش کرده و حساسیت لازم برای انتقال مفاهم اسلامی در زمینه‌های فرهنگی را توسعه دهند.",
+                "area-1-title": "ترجمه قرآنی",
+                "area-1-desc": "یادگیری ترجمه قرآن کریم با دقت، درک معجزات زبانی و انتقال معانی عمیق در زبان‌های مختلف.",
+                "area-2-title": "ترجمه حدیث",
+                "area-2-desc": "مسلط شدن بر ترجمه سنت‌های پیامبری در حالی که زمینه، ظرافت‌ها و پیامدهای قانونی روایت‌ها را حفظ می‌کند.",
+                "area-3-title": "متون کلاسیک",
+                "area-3-desc": "توسعه مهارت‌های ترجمه ادبیات کلاسیک اسلامی، از جمله آثار فقه، الهیات و معنویت.",
+                "area-4-title": "تفسیر",
+                "area-4-desc": "یادگیری هنر تفسیر (تفسیر) و نحوه انتقال معانی عمیق و درک زمینه‌ای متون اسلامی.",
+                "skills-title": "مهارت‌های ضروری ترجمه",
+                "skill-1-title": "تسلط زبانی",
+                "skill-1-desc": "مسلط شدن بر دستور زبان، واژگان و ویژگی‌های سبکی عربی که برای ترجمه دقیق ضروری هستند.",
+                "skill-2-title": "دقت مفهومی",
+                "skill-2-desc": "اطمینان از اینکه مفاهیم اسلامی با دقت و صحت الهیاتی ترجمه می‌شوند.",
+                "skill-3-title": "حساسیت فرهنگی",
+                "skill-3-desc": "درک زمینه‌های فرهنگی و تطبیق ترجمه‌ها برای برانگیختن مخاطبان هدف.",
+                "skill-4-title": "برتری سبکی",
+                "skill-4-desc": "توسعه مهارت‌های نوشتاری که زیبایی و قدرت متون اصلی را حفظ می‌کند.",
+                "methods-title": "رویکرد یادگیری ما",
+                "tab-theory-title": "پایه نظری",
+                "tab-theory-desc": "مولفه نظری ما پایه محکمی در اصول و روش‌های ترجمه مخصوص متون اسلامی به دانش‌آموزان ارائه می‌دهد.",
+                "tab-theory-item-1": "اصول ترجمه اسلامی",
+                "tab-theory-item-2": "چالش‌های ترجمه متون مقدس",
+                "tab-theory-item-3": "تاریخ ترجمه قرآنی",
+                "tab-theory-item-4": "تحلیل مقایسه‌ای ترجمه‌های اصلی",
+                "tab-theory-item-5": "خطاهای رایج و نحوه اجتناب از آنها",
+                "tab-practice-title": "کاربرد عملی",
+                "tab-practice-desc": "از طریق تمرینات گسترده، دانش‌آموزان مهارت‌های لازم برای تولید ترجمه‌های باکیفیت از متون اسلامی را توسعه می‌دهند.",
+                "tab-practice-item-1": "تمرینات ترجمه راهنما",
+                "tab-practice-item-2": "جلسات بازبینی همسالان و بازخورد",
+                "tab-practice-item-3": "تحلیل مقایسه‌ای ترجمه",
+                "tab-practice-item-4": "پروژه‌های ترجمه دنیای واقعی",
+                "tab-practice-item-5": "کار ترجمه گروهی",
+                "tab-specialization-title": "حوزه‌های تخصص",
+                "tab-specialization-desc": "دانش‌آموزان می‌توانند بر اساس علایق و اهداف شغلی خود در حوزه‌های خاصی از ترجمه اسلامی تخصص پیدا کنند.",
+                "tab-specialization-item-1": "ترجمه و تفسیر قرآنی",
+                "tab-specialization-item-2": "ترجمه و شرح حدیث",
+                "tab-specialization-item-3": "ترجمه متون حقوقی اسلامی",
+                "tab-specialization-item-4": "آثار تاریخی و بیوگرافی",
+                "tab-specialization-item-5": "گفتمان معاصر اسلامی",
+                "enrollment-title": "ترجمه اسلامی را بیاموزید",
+                "enrollment-text": "به دوره ترجمه ما بپیوندید تا مهارت‌های لازم برای انتقال دقیق دانش اسلامی در مرزهای زبانی و فرهنگی را توسعه دهید. برنامه ما برای دانش‌آموزان با تسلط متوسط تا پیشرفته بر زبان عربی مناسب است.",
+                "enroll-btn": "همین حالا ثبت‌نام کنید",
+                "nav-home": "صفحه اصلی",
+                "nav-memorizing": "حفظ قرآن کریم",
+                "nav-observation": "مشاهده",
+                "nav-recitation": "قواعد تلاوت",
+                "nav-tajweed": "تجوید",
+                "nav-biography": "بیوگرافی",
+                "nav-hadith": "حدیث",
+                "footer-copyright": "&copy; 2023 اکادمی اسلامی حسیب. تمامی حقوق محفوظ است."
+            }
+        };
+
+        // Language switching function
+        function switchLanguage(lang) {
+            // Update HTML lang and dir attributes
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+            
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+        }
+        
+        // Tab switching function
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-pane");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
